@@ -21,6 +21,7 @@ string(APPEND CMAKE_C_FLAGS_INIT
     " -std=c99"
     # Do not allow lesser optimization levelsbecause of license restrictions
     " --nofallback"
+    " -mdfp=${DFP_DIR}"
 )
 
 set(CMAKE_C_OUTPUT_EXTENSION ".p1")
