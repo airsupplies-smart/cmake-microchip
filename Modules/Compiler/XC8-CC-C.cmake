@@ -17,8 +17,6 @@
 string(APPEND CMAKE_C_FLAGS_INIT
     # build for the configured MCU model
     " -mcpu=${MICROCHIP_MCU_MODEL}"
-    # Set c99 standard, so the compiler uses CLang frontend
-    " -std=c99"
     # Do not allow lesser optimization levelsbecause of license restrictions
     " --nofallback"
     " -mdfp=${DFP_DIR}"
