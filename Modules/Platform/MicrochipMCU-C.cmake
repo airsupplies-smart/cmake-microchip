@@ -14,8 +14,19 @@
 # This module is loaded during the search for a C compiler
 # to provide the information necessary to find one.
 
+# Allow selecting the compiler family for 8-bit PICs explicitly.
+# Supported values: "XC8", "SDCC" (empty means auto / default to XC8)
+set(MICROCHIP_COMPILER ""
+    CACHE STRING "Preferred Microchip C compiler for 8-bit PICs (XC8 or SDCC)"
+)
+
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_8")
-    include(Platform/MicrochipMCU-C-XC8)
+    # Prefer explicit user choice; otherwise auto-detect SDCC by compiler name.
+    if(MICROCHIP_COMPILER STREQUAL "SDCC" OR (CMAKE_C_COMPILER AND CMAKE_C_COMPILER MATCHES ".*sdcc(\\.exe)?$"))
+        include(Platform/MicrochipMCU-C-SDCC)
+    else()
+        include(Platform/MicrochipMCU-C-XC8)
+    endif()
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_16")
     include(Platform/MicrochipMCU-C-XC16)
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "PIC_32")
