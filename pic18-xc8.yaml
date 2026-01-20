@@ -6,10 +6,10 @@ compilers:
     match-compiler-exe: "(.*/)?xc8-cc(\\.exe)?"
     code-insight-target-name: "avr"
     include-dirs: 
-      ${compiler-exe-dir}/../pic/include
-      ${compiler-exe-dir}/../pic/include/proc
-      ${HOME}/.mchp_packs/Microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include/proc
-      ${HOME}/.mchp_packs/Microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include
+      - "${compiler-exe-dir}/../pic/include"
+      - "${compiler-exe-dir}/../pic/include/c99"
+      - "${compiler-exe-dir}/../pic/include/proc"
+      - "/opt/microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include"
     defines-text: "
 #define _18F97J94 1
 #define __18F97J94 1
