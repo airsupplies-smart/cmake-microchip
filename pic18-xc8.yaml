@@ -9,7 +9,7 @@ compilers:
       - "${compiler-exe-dir}/../pic/include"
       - "${compiler-exe-dir}/../pic/include/c99"
       - "${compiler-exe-dir}/../pic/include/proc"
-      - "/opt/microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include"
+      - "${user-home}/.mchp_packs/Microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include"
     defines-text: "
 #define _18F97J94 1
 #define __18F97J94 1
@@ -41,10 +41,10 @@ compilers:
     match-args: -mpic16
     match-language: C
     include-dirs:
-      - ${compiler-exe-dir}/../include/pic16
-      - ${compiler-exe-dir}/../include
-      - ${compiler-exe-dir}/../non-free/include/pic16
-      - ${compiler-exe-dir}/../non-free/include
+      - "${compiler-exe-dir}/../include/pic16"
+      - "${compiler-exe-dir}/../include"
+      - "${compiler-exe-dir}/../non-free/include/pic16"
+      - "${compiler-exe-dir}/../non-free/include"
     defines-text: "
 #define __STACK_MODEL_SMALL 1
 #define __SDCC_pic16 1
