@@ -4,13 +4,37 @@ compilers:
     match-sources: ".*\\.c"
     match-language: C
     match-compiler-exe: "(.*/)?xc8-cc(\\.exe)?"
-    code-insight-target-name: xc8
+    code-insight-target-name: "avr"
     include-dirs: 
       ${compiler-exe-dir}/../pic/include
       ${compiler-exe-dir}/../pic/include/proc
       ${HOME}/.mchp_packs/Microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include/proc
       ${HOME}/.mchp_packs/Microchip/PIC18F-J_DFP/1.4.41/xc8/pic/include
-    defines:
+    defines-text: "
+#define _18F97J94 1
+#define __18F97J94 1
+#define __18F97J94__ 1
+#define __PICC18__ 1
+#define __XC8 1
+#define __XC8_VERSION 3100
+#define _PIC18 1
+#define __BITINT_MAXWIDTH__ 128
+#define __BOOL_WIDTH__ 8
+#define __CHAR_BIT__ 8
+#define __CHAR_UNSIGNED__ 1
+#define __SIZEOF_INT__ 2
+#define __SIZEOF_POINTER__ 2
+#define __STDC_VERSION__ 199901L
+#define __STDC__ 1
+#define __at(x) __attribute__((address(x)))
+#define __section(name) __attribute__((section(name)))
+#define __interrupt(...) __attribute__((picinterrupt(__VA_ARGS__)))
+#define __compiled __attribute__((nonreentrant))
+#define __nonreentrant __attribute__((nonreentrant))
+#define __reentrant __attribute__((reentrant))
+#define asm(arg) __asm(arg)
+#define _HAS_INT24 1
+#define __SIZEOF_INT24__ 3"
 
   - description: SDCC for PIC-16
     match-compiler-exe: "(.*/)?sdcc(.exe)?"
